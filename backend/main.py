@@ -64,6 +64,13 @@ async def root():
     except Exception as e:
         print(f"API connection failed: {str(e)}")
 
+
+#route to get all drone data 
+@app.get("/drone-data")
+async def get_drone_data():
+    return drone_data
+
+#route to get response from AI 
 @app.post("/ai/generate", response_model=AIResponse)
 async def ai_generate(query: Query):
     return await generate_ai_response(query)
