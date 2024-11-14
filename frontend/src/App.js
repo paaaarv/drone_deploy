@@ -6,10 +6,8 @@ import Query from './components/Query';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          <DroneList/>
-          <Query/>
-      </header>
+      <Query/>
+      <DroneList/>
     </div>
   );
 }
