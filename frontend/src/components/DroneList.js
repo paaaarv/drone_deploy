@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Grid2 } from '@mui/material';
+import {Box, Grid2} from '@mui/material';
 import axios from 'axios';
 import Drone from './Drone'
 
@@ -25,19 +25,21 @@ export default function DroneList(){
             return droneData.map(data => {
                 console.log(data);
                 return (
-                <Grid2>
-                        <Drone 
-                            key = {data.image_id}
-                            props={data}/>
-
+                <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                    <Drone 
+                        key = {data.image_id}
+                        props={data}
+                    />
                 </Grid2>
                 )
             })
         }
 
     return(
+        <Box sx={{flexGrow : 1, m: 2}} >
         <Grid2 container spacing={1}> 
             {showDroneList()}
         </Grid2>
+        </Box>
     )
 }
