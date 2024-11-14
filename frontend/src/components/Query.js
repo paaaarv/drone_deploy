@@ -3,8 +3,8 @@ import { TextField, Button, Box, Typography, Card} from '@mui/material';
 import axios from 'axios';
 
 export default function Query(){
-    let [query, setQuery] = React.useState('');
-    let [response, setResponse] = React.useState('');
+    let [query, setQuery] = useState('');
+    let [response, setResponse] = useState('');
 
     const api = axios.create({
         baseURL: 'http://localhost:8000',

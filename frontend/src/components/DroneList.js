@@ -24,7 +24,7 @@ export default function DroneList(){
         const showDroneList=()=>{
             return droneData.map(data => {
                 return (
-                <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 4 }}>
                     <Drone 
                         key = {data.image_id}
                         props={data}
@@ -36,7 +36,7 @@ export default function DroneList(){
 
     return(
         <Box sx={{flexGrow : 1, m: 2}} >
-        <Grid2 container spacing={1}> 
+        <Grid2 container spacing={1} style={{justifyContent: 'center'}}> 
             {showDroneList()}
         </Grid2>
         </Box>
