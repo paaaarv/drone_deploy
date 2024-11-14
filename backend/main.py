@@ -32,22 +32,21 @@ class AIResponse(BaseModel):
 
 
 
-async def generate_ai_response():
-    test_query = "What is the altitude of the fifth image?"
+async def generate_ai_response(query: Query):
     try:
         prompt = f"""You are an AI assistant with access to drone flight data. 
         Use the following data to answer the query: {json.dumps(drone_data)}
         
-        Query: {test_query}
+        Query: {query.text}
         
         Provide a response based only on the given drone data."""
 
         response = client.chat.completions.create(
-    model="gpt-3.5-turbo",  # or another appropriate model
-    messages=[
-        {"role": "user", "content": prompt},
-        {"role": "user", "content": test_query}
-    ]
+             model="gpt-3.5-turbo", 
+            messages=[
+             {"role": "user", "content": prompt},
+                {"role": "user", "content": query.text}
+            ]
 )
         return AIResponse(response=response.choices[0].message.content)
     except Exception as e:

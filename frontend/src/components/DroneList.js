@@ -23,7 +23,6 @@ export default function DroneList(){
 
         const showDroneList=()=>{
             return droneData.map(data => {
-                console.log(data);
                 return (
                 <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
                     <Drone 
